@@ -1,0 +1,33 @@
+<div style="width: 100%;height: 100vh;background-image: url('https://wallup.net/wp-content/uploads/2016/01/164242-Simon_C._Page-circle-abstract-pattern-geometry.jpg');background-size: cover;" class="d-flex align-items-center justify-content-center">
+    <div style="width: 800px;" class="shadow p-5 row rounded bg-light align-items-center">
+        <div class="col-lg-7">
+            <img class="w-75" src="https://th.bing.com/th/id/R.14377ee0a6800074afe0f4cd2468686a?rik=D7J6LvLOO2laVQ&riu=http%3a%2f%2fwww.tropiqana.com%2ffundsmanager%2fapp-assets%2fimg%2fgallery%2flogin.png&ehk=UKXxkrvs3N8qB%2bgbLieTA87gL1aoQ6S4Ha6i6xrc9lA%3d&risl=&pid=ImgRaw&r=0" alt="">
+        </div>
+        <div class="col-lg-5">
+
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+                <h3 class="text-center mb-3">Login Form</h3>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" [(ngModel)]="email" email required #useremailinput="ngModel">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <!-- Invalid Email -->
+                  <div *ngIf="useremailinput.invalid && useremailinput.touched" class="mb-3 text-danger fw-bolder">
+                    Invalid Email
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"  name="password" [(ngModel)]="password" required pattern="[a-zA-Z0-9]*" minlength="3" #userpassword="ngModel">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <!-- Invalid Password -->
+                  <div *ngIf="userpassword.invalid && userpassword.touched" class="mb-3 text-danger fw-bolder">
+                    Invalid Email
+                  </div>
+                  <div class="d-grid">
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-dark text-light">Login</button>
+                  </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

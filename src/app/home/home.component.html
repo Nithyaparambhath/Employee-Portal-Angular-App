@@ -1,0 +1,46 @@
+<div class="d-flex">
+    <!-- <div *ngIf="showSideBar" style="height: 89vh;width: 150px;" class="sidebar bg-dark text-light p-3 d-flex flex-column">
+        <a style="text-decoration: none;margin-top: 10px;color:#ffffff;" routerLink="/dashboard">Home</a>
+        <a style="text-decoration: none;margin-top: 10px;color:#ffffff;" routerLink="/users">Users</a>
+    </div> -->
+    <div *ngIf="showSideBar" style="height: 89vh;width: 150px;" class="sidebar bg-dark text-light p-3 d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column">
+            <a style="text-decoration: none;margin-top: 10px;color:#ffffff;" routerLink="/dashboard">Home</a>
+            <a style="text-decoration: none;margin-top: 10px;color:#ffffff;" routerLink="/users">Users</a>
+        </div>
+        <button class="btn btn-link" style="text-decoration: none;margin-top: 10px;color:#ffffff;" (click)="logOut()">Logout</button>
+    </div>
+    <div class="dashboard p-3 w-100">
+        <div class="row">
+            <div class="col-lg-8 ">
+                <div  style="height: 150px;background-image: url('https://th.bing.com/th/id/OIP.PIV3BULGjMqNQ-Ka8RAEOgHaE8?rs=1&pid=ImgDetMain');background-size: cover;" class="admin-banner border rounded shadow">
+                    <h1 style="height: 150px;" class="ms-5 text-light d-flex justify-content-start  align-items-center"><i style="cursor: pointer;" (click)="menuButton()" class="fa-solid fa-bars me-2"></i> Welcome {{admin_name}}</h1>
+                </div>
+                <div class="row m-3">
+                    <div class="col-lg-5 border rounded shadow">
+                        <!-- <h1>Calender</h1> -->
+                        <mat-card class="demo-inline-calendar-card">
+                            <mat-calendar [(selected)]="selected"></mat-calendar>
+                          </mat-card>
+                         
+                    </div>
+                    <div class="col-lg-1">
+        
+                    </div>
+                    <div class="col-lg-6 border rounded shadow">
+                         <app-chart></app-chart>   
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div style="height: 400px;" class="edit-admin border rounded shadow p-2">
+                    <app-update-admin (onAdminChange)="getUpdatedAdmin($event)"></app-update-admin>
+                </div>
+                <div style="height: 150px;background-image: url('https://th.bing.com/th/id/OIP.Ej6DIS1jeGLJbejVbfphcgHaEo?rs=1&pid=ImgDetMain');" class="employees border rounded shadow mt-2 bg-dark text-light d-flex align-items-center justify-content-center">
+                    <h2 class="fw-bolder"><i class="fa-solid fa-users me-2"></i> Employees : 12</h2>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
